@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0e9f0; /* Tom de azul claro para o fundo */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid #3498db; /* Tom de azul mais escuro para a borda */
+    border-radius: 8px; /* Borda arredondada */
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9; /* Tom de azul mais escuro quando passa o mouse */
+}
+
+/* Estilos para os resultados */
+.resultado {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultado {
+    color: green; /* Tom de azul escuro para o texto */
+    background-color: #a9cce3; /* Tom de azul claro para o fundo */
+}
+
+#resultadoerro, #resultadoBuscaerro, #resultadoUpdateerro, #resultadodeleteerro, #resultadoAllerro {
+    color: red; /* Tom de vermelho escuro para mensagens de erro */
+    background-color: #d5dbdb; /* Tom de cinza claro para fundo de erro */
+}
+
+#resultadoBusca, #resultadoAll {
+    color: #1a5276; /* Tom de azul escuro para o texto */
+    background-color: #d5dbdb; /* Tom de cinza claro para fundo */
+}
+
+/* Estilos para a tabela */
+.table-container {
+    width: 100%; /* Define a largura total do contêiner */
+    margin-left: auto; /* Coloca o contêiner no centro */
+    margin-right: auto; /* Coloca o contêiner no centro */
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+}
+
+/* Estilos para as células da tabela */
+.custom-table th, .custom-table td {
+    
+    padding: 12px;
+    border: 2px solid #3498db; /* Tom de azul para as bordas */
+    text-align: center;
+}
+
+/* Estilo para o cabeçalho da tabela */
+.custom-table th {
+    background-color: #2980b9; /* Tom de azul escuro para o cabeçalho */
+    color: white;
+}
+
+/* Estilo para as linhas alternadas da tabela */
+.custom-table tr:nth-child(even) {
+    background-color: #ecf0f1; /* Tom de azul claro para linhas alternadas */
+}
+
+/* Estilo para as linhas da tabela quando passa o mouse por cima */
+.custom-table tr:hover {
+    background-color: #b3e0ff; /* Tom de azul claro quando o mouse passa por cima */
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista completa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Lista de todos jogadores</h1>
+    <button onclick="todosJogadores()">Buscar todos Jogador</button>
+    <div id="resultadoAll"></div>
+    <div id="resultadoAllerro"></div>
+    
+    <script>
+
+
+async function todosJogadores() {
+    const resultadoAll = document.getElementById("resultadoAll");
+    const resultadoAllErro = document.getElementById("resultadoAllerro");
+
+    try {
+        const response = await fetch(`http://localhost:3000/allsearch`);
+
+        if (response.ok) {
+            const responseData = await response.json();
+            const players = responseData.players;
+
+            // Verificar se players é um array
+            if (Array.isArray(players)) {
+                // Criar tabela HTML
+                const table = document.createElement("table");
+                const headerRow = table.insertRow();
+                table.classList.add("custom-table");
+
+                // Adicionar cabeçalhos à tabela
+                for (const key in players[0]) {
+                    const th = document.createElement("th");
+                    th.textContent = key;
+                    headerRow.appendChild(th);
+                }
+
+                // Adicionar dados à tabela
+                players.forEach(player => {
+                    const row = table.insertRow();
+                    for (const key in player) {
+                        const cell = row.insertCell();
+                        cell.textContent = player[key];
+                        cell.classList.add("table-cell");
+                        
+                    }
+                });
+
+                // Limpar resultados anteriores
+                resultadoAll.innerHTML = "";
+                resultadoAllErro.textContent = "";
+
+                // Adicionar tabela à página
+                resultadoAll.appendChild(table);
+            } else {
+                // Se players não for um array, trate conforme sua lógica de aplicação
+                throw new Error("Os dados recebidos não estão no formato esperado.");
+            }
+        } else {
+            const errorResponse = await response.json();
+            throw new Error(`${errorResponse.error}`);
+        }
+    } catch (error) {
+        // Limpar resultados anteriores em caso de erro
+        resultadoAll.innerHTML = "";
+        resultadoAllErro.textContent = error.message;
+    }
+}
+
+
+
+    </script>
+
+   
+    </body>
+</html>
